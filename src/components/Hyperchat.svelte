@@ -14,6 +14,8 @@
   import ReportBanDialog from './ReportBanDialog.svelte';
   import SuperchatViewDialog from './SuperchatViewDialog.svelte';
   import StickyBar from './StickyBar.svelte';
+  import { addEmotes } from '../ts/word-image-map';
+  import { getEmotes } from '../ts/get-emotes'
   import {
     Theme,
     YoutubeEmojiRenderMode,
@@ -148,6 +150,7 @@
     piledMessages = [];
   }
 
+  
 
   const onBonk = (bonk: Ytc.ParsedBonk) => {
     messageActions.forEach((action) => {
@@ -341,7 +344,17 @@
     return () => $port?.destroy?.();
   };
 
-  onMount(onLoad);
+  async function fetchEmotes(){
+    //Get emotes
+    let emotes = await getEmotes();
+    addEmotes(emotes);
+
+  }
+
+  onMount(() => {
+    onLoad();
+    fetchEmotes();
+  });
 
   const onRefresh = () => {
     if (isAtBottom) {
@@ -407,6 +420,11 @@
       }
     }).join('').includes(`@${$selfChannelName}`);
   };
+
+
+
+  
+
 </script>
 
 <ReportBanDialog />
