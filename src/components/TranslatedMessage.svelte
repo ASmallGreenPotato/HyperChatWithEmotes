@@ -1,7 +1,5 @@
 <script lang="ts">
-
-  import { emoteMap } from '../ts/word-image-map';
-
+  import EmoteParts from './EmoteParts.svelte';
 
   import { refreshScroll, translatorClient, translateTargetLanguage } from '../ts/storage';
   import Icon from './common/Icon.svelte';
@@ -35,21 +33,9 @@
     ? 'text-translated-dark'
     : `text-translated-light ${forceTLColor === Theme.YOUTUBE ? 'dark:text-translated-dark' : ''}`;
 
-type EmotePiece = { type: 'text', content: string } | { type: 'img', src: string, alt: string };
 
-function replaceEmotes(text: string): EmotePiece[] {
-  const words = text.split(/(\s+)/); // keep spaces
 
-  return words.map((word) => {
-    const emoteUrl = emoteMap[word];
-    if (emoteUrl) {
-      return { type: 'img', src: emoteUrl, alt: word };
-    }
-    return { type: 'text', content: word };
-  });
-}
 
-let emoteParts = replaceEmotes(text);
 </script>
 
 <span
@@ -64,13 +50,7 @@ let emoteParts = replaceEmotes(text);
   }}
 >
   <span>
-    {#each emoteParts as part}
-    {#if part.type === 'text'}
-      {@html part.content} <!-- Use {@html} if you want to preserve spacing like &nbsp; -->
-    {:else if part.type === 'img'}
-      <img src={part.src} alt={part.alt} style="height: 1em; display: inline;" />
-    {/if}
-  {/each}
+    <EmoteParts text={showTL ? translatedMessage : text}/>
   </span>
 
   {#if translatedMessage}

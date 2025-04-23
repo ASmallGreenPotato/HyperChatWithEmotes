@@ -14,8 +14,6 @@
   import ReportBanDialog from './ReportBanDialog.svelte';
   import SuperchatViewDialog from './SuperchatViewDialog.svelte';
   import StickyBar from './StickyBar.svelte';
-  import { addEmotes } from '../ts/word-image-map';
-  import { getEmotes } from '../ts/get-emotes'
   import {
     Theme,
     YoutubeEmojiRenderMode,
@@ -344,17 +342,8 @@
     return () => $port?.destroy?.();
   };
 
-  async function fetchEmotes(){
-    //Get emotes
-    let emotes = await getEmotes();
-    addEmotes(emotes);
 
-  }
-
-  onMount(() => {
-    onLoad();
-    fetchEmotes();
-  });
+  onMount(onLoad);
 
   const onRefresh = () => {
     if (isAtBottom) {
