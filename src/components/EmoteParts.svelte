@@ -20,7 +20,6 @@ function replaceEmotes(text: string): EmotePiece[] {
   });
 }
 
-console.log(emoteMap);
 
 let emoteParts = replaceEmotes(text);
 </script>

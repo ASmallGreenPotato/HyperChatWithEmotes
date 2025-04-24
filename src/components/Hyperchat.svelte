@@ -51,6 +51,7 @@
     ytDark
   } from '../ts/storage';
   import type { Chat } from '../ts/typings/chat';
+  
 
   const welcome = { welcome: true, message: { messageId: 'welcome' } };
   type Welcome = typeof welcome;
@@ -147,7 +148,6 @@
     }
     piledMessages = [];
   }
-
   
 
   const onBonk = (bonk: Ytc.ParsedBonk) => {
@@ -342,7 +342,6 @@
     return () => $port?.destroy?.();
   };
 
-
   onMount(onLoad);
 
   const onRefresh = () => {
@@ -409,11 +408,6 @@
       }
     }).join('').includes(`@${$selfChannelName}`);
   };
-
-
-
-  
-
 </script>
 
 <ReportBanDialog />

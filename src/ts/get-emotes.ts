@@ -1,4 +1,3 @@
-// emote-api.ts
 type EmoteMap = Record<string, string>;
 
 export async function get7TVEmotes(): Promise<EmoteMap> {

@@ -11,6 +11,7 @@ import {
   setTheme
 } from '../ts/messaging';
 
+
 const hcWarning = 'An existing HyperChat button has been detected. This ' +
   'usually means both LiveTL and standalone HyperChat are enabled. ' +
   'LiveTL already includes HyperChat, so please enable only one of them.\n\n' +
@@ -136,6 +137,8 @@ const chatLoaded = async (): Promise<void> => {
     }
     live.click();
   }
+
+  
 };
 
 if (isLiveTL) {
