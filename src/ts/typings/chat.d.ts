@@ -40,6 +40,8 @@ declare namespace Chat {
 
   type Actions = MessagesAction | BonkAction | DeleteAction | Ytc.ParsedMisc | PlayerProgressAction | ForceUpdate;
 
+  
+
   interface UncheckedFrameInfo {
     tabId: number | undefined;
     frameId: number | undefined;

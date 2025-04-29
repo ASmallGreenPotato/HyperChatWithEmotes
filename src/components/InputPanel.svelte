@@ -6,6 +6,12 @@
     let ytInputDiv: HTMLElement;
     let inputPanel: HTMLDivElement;
     export function activate(){
+        //Check if restricted
+        let restrictedInput = ytInputPanel.querySelector("yt-live-chat-restricted-participation-renderer");
+        if (restrictedInput) {
+            console.log("restricted input");
+            return;
+        }
         ytInputDiv = ytInputParent.querySelector("#input #input");
         ytInputPanel.style.setProperty("display", "none", "important");
         inputPanel.style.setProperty("display", "block", "important");
@@ -19,9 +25,7 @@
     }
 </script>
 <div bind:this={inputPanel} id="input-holder-panel">
-    <ChatInput
-    originalInput = {ytInputDiv}
-    />
+    <ChatInput/>
     <button on:click={deactivate}>deactivate</button>
 </div>
 

@@ -82,3 +82,6 @@ export const enableStickySuperchatBar = stores.addSyncStore('hc.enableStickySupe
 export const enableHighlightedMentions = stores.addSyncStore('hc.enableHighlightedMentions', true);
 export const lastOpenedVersion = stores.addSyncStore('hc.lastOpenedVersion', '');
 export const bytesUsed = stores.addSyncStore('hc.bytes.used', 0);
+
+
+export const emoteResponse = writable<boolean>(false);

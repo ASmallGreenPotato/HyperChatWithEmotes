@@ -7,6 +7,7 @@ import { addEmotes } from '../ts/word-image-map';
 import { getEmotes } from '../ts/get-emotes'
 
 import InputPanel from '../components/InputPanel.svelte';
+import { emoteResponse } from '../ts/storage';
 
 
 
@@ -86,6 +87,7 @@ async function fetchEmotes(){
   let emotes = await getEmotes();
   addEmotes(emotes);
 
+  emoteResponse.set(true);
 
 }
 
