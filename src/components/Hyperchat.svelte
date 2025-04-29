@@ -52,7 +52,6 @@
   } from '../ts/storage';
   import type { Chat } from '../ts/typings/chat';
   
-
   const welcome = { welcome: true, message: { messageId: 'welcome' } };
   type Welcome = typeof welcome;
 
