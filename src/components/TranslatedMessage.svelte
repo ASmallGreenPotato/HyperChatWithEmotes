@@ -12,6 +12,7 @@
   let translatedLanguage = '';
   let showOriginal = false;
 
+
   $: if ($translateTargetLanguage && $translatorClient) {
     $translatorClient.translate(text, $translateTargetLanguage).then(result => {
       if (result !== text) {
